@@ -3,7 +3,12 @@ Posteet
 
 Posteet is a very simple platform to post quotes & images.
 
-1) Installation
+1) Why does this project exist?
+-------------------------------
+
+This project was created train newcomers at LaFourchette to the Symfony2 Framework
+
+2) Installation
 ---------------
 
 Start to clone this repository.
