@@ -1,0 +1,24 @@
+{% extends '::admin.html.twig' %}
+{% block title %}Liste des utilisateurs{% endblock %}
+{% set submenu = 'user_list' %}
+
+{% block body %}
+    <div class="row-fluid">
+        <div class="span12">
+            <table class="table table-striped">
+                <tr>
+                    <th>#</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                </tr>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.firstName }}</td>
+                        <td>{{ user.lastName }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

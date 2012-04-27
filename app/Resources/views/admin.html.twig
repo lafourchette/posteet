@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% set menu = 'admin' %}
+{% block content %}
+    {% if submenu is not defined %}
+        {% set submenu = 'home' %}
+    {% endif %}
+    <div class="row">
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li{% if submenu == 'home' %} class="active"{% endif %}><a href="{{ url('admin') }}">Accueil</a></li>
+                    <li class="nav-header">Gestion des utilisateurs</li>
+                    <li{% if submenu == 'user_list' %} class="active"{% endif %}>
+                        <a href="{{ url('LFUserBundle_Show_list') }}">Voir tous les utilisateurs</a>
+                    </li>
+                    <li class="nav-header">Création d'utilisateur</li>
+                    <li{% if submenu == 'user_new_fr' %} class="active"{% endif %}>
+                        <a href="{{ url('LFUserBundle_Edition_new', { 'country': 'fr' }) }}">France</a>
+                    </li>
+                    <li{% if submenu == 'user_new_es' %} class="active"{% endif %}>
+                        <a href="{{ url('LFUserBundle_Edition_new', { 'country': 'es' }) }}">Espagne</a>
+                    </li>
+                    <li{% if submenu == 'user_new_ch' %} class="active"{% endif %}>
+                        <a href="{{ url('LFUserBundle_Edition_new', { 'country': 'ch' }) }}">Suisse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="span9">
+            {% for type in ['error', 'success', 'info'] %}
+                {% if app.session.hasFlash('alert-' ~ type) %}
+                    <div class="alert alert-{{ type }}">
+                        {{ app.session.getFlash('alert-' ~ type) }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

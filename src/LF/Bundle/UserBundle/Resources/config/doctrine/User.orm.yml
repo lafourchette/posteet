@@ -1,0 +1,22 @@
+LF\Bundle\UserBundle\Entity\User:
+    type: entity
+    repositoryClass: LF\Bundle\UserBundle\Repository\UserRepository
+    table: user
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        country:
+            type: string
+            length: 2
+        firstName:
+            column: first_name
+            type: string
+            length: 100
+        lastName:
+            column: last_name
+            type: string
+            length: 100
+        bio:
+            type: text

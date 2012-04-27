@@ -1,0 +1,9 @@
+LF\Bundle\MainBundle\Entity\Quote:
+    properties:
+        author:
+            - NotBlank: ~
+            - MinLength: 3
+            - MaxLength: 50
+        text:
+            - NotBlank: ~
+            - MinLength: 15

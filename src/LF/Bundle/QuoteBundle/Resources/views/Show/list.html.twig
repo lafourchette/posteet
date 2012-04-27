@@ -1,0 +1,30 @@
+<table id="quote-list" class="table table-striped">
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+        {% for quote in o_quotes %}
+        <tr>
+            <td>{{ quote.author }}</td>
+            <td>
+                {% if quote.image != "" %}
+                    <img src="{{ quote.image }}" />
+                {% endif %}
+                {% if quote.link != "" %}
+                    <img src="{{ quote.link }}" />
+                {% endif %}
+                {{ quote.text }}
+            </td>
+            <td>
+                <div class="btn">
+                    <button href="#" data-url="{{ path('LFQuoteBundle_voter_decrease', {  id: quote.id }) }}" class="btn btn-danger btVote">-1</button>
+                    <button href="#" data-url="{{ path('LFQuoteBundle_voter_increase', {  id: quote.id }) }}" class="btn btn-primary btVote">+1</button>
+                </div>
+                <div class="btn">
+                    <button id='vote{{quote.id}}' class="btn">{{ quote.vote }}</button>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+</table>

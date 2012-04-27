@@ -1,0 +1,16 @@
+LFQuoteBundle:
+    resource: "@LFQuoteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LFUserBundle:
+    resource: "@LFUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+LFMainBundle:
+    resource: "@LFMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# Internal routing configuration to handle ESI
+#_internal:
+#   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#   prefix:   /_internal

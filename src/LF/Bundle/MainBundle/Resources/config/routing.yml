@@ -1,0 +1,6 @@
+homepage:
+    pattern:  /
+    defaults: { _controller: LFMainBundle:Default:index }
+admin:
+    pattern:  /admin
+    defaults: { _controller: LFMainBundle:Default:admin }

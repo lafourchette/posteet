@@ -1,0 +1,32 @@
+LF\Bundle\QuoteBundle\Entity\Quote:
+    type: entity
+    repositoryClass: LF\Bundle\QuoteBundle\Repository\QuoteRepository
+    table: quote
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        author:
+            type: string
+            length: 100
+        text:
+            type: text
+            nullable: true
+        link:
+            type: text
+            nullable: true
+        image:
+            type: text
+            nullable: true
+        vote:
+            type: integer
+        nbVote:
+            column: nb_vote
+            type: integer
+        createdAt:
+            column: created_at
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create

@@ -1,0 +1,17 @@
+LFQuoteBundle_Edit_new:
+    pattern:  /quote/new/{mode}
+    defaults: { _controller: LFQuoteBundle:Edit:new, subMenu: 'edit_' }
+LFQuoteBundle_Edit_edit:
+    pattern:  /quote/edit/{id}
+    defaults: { _controller: LFQuoteBundle:Edit:new }
+LFQuoteBundle_Show_list:
+    pattern:  /quote/list/{stringPart}.{_format}
+    defaults: { _controller: LFQuoteBundle:Show:list, stringPart: index,  _format: html, subMenu: 'quote_list' }
+    requirements:
+        _format: html|json
+LFQuoteBundle_voter_increase:
+    pattern:  /quote/increase/{id}
+    defaults: { _controller: LFQuoteBundle:Voter:increase }
+LFQuoteBundle_voter_decrease:
+    pattern:  /quote/decrease/{id}
+    defaults: { _controller: LFQuoteBundle:Voter:decrease }

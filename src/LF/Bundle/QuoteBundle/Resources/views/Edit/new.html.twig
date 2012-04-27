@@ -1,0 +1,16 @@
+{% extends '::default.html.twig' %}
+
+{% block title %}Création d'une citation{% endblock %}
+{% set submenu = 'new_'~mode %}
+
+{% block body %}
+
+    <div class="row-fluid">
+        <div class="span12">
+            <form novalidate action="{{ path('LFQuoteBundle_Edit_new', { 'mode': mode }) }}" method="post" {{ form_enctype(form) }}>
+                {{ form_rest(form) }}
+                <button type="submit" class="btn">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

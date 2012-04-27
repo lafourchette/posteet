@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% block stylesheets %}
+            {% stylesheets filter='less,cssrewrite,?yui_css'
+                '@LFMainBundle/Resources/public/css/main.less'
+            %}
+                <link href="{{ asset_url }}" rel="stylesheet" />
+            {% endstylesheets %}
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">Posteet</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li{% if menu == 'website' %} class="active"{% endif %}>
+                                <a href="{{ url('homepage') }}">Accueil</a>
+                            </li>
+                            <li{% if menu == 'admin' %} class="active"{% endif %}>
+                                <a href="{{ url('admin') }}">Administration</a>
+                            </li>
+                            {% if app.user %}<li><a href="{{ url('logout') }}">Deconnexion</a>{% endif %}
+                        </ul>
+                        <form id="nav-search-form" class="well form-search navbar-text pull-right" action="{{ url('LFQuoteBundle_Show_list') }}" method="POST">
+                            <input id="nav-search-text" type="text" class="input-medium search-query" name="stringPart" value="{{ stringPart | default('') }}"/>
+                            <input type="submit" class="btn" value="Rechercher !"/>
+                            <a id="nav-search-reset" class="btn" href="#">
+                                Reset
+                            </a>
+                        </form>
+{#                         <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            {% block content %}{% endblock %}
+
+            <hr>
+
+            <footer>
+                <p>&copy; Company 2012</p>
+            </footer>
+
+        </div>
+
+        {% block javascript %}
+            {% javascripts
+                '@LFMainBundle/Resources/public/js/jquery-1.7.2.js'
+                '@LFMainBundle/Resources/public/js/main.js' 
+            %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>

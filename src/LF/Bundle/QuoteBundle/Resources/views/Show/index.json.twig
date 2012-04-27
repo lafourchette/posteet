@@ -1,0 +1,15 @@
+{ "quotes" : [
+{% for quote in o_quotes %}
+    {
+         "id" : {{ quote.id }},
+         "author": {{ quote.author }}
+         "image": "{{ quote.image }}",
+         "link": "{{ quote.link }}",
+         "text": "{{ quote.text }}",  
+         "vote": {{ quote.vote }},
+         "nbVote": {{ quote.nbVote }}
+    }
+{% endfor %}
+],
+"table" : "{% include 'LFQuoteBundle:Show:list.html.twig' with {'o_quotes': o_quotes} %}"
+}

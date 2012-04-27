@@ -1,0 +1,15 @@
+LF\Bundle\QuoteBundle\Entity\Quote:
+    properties:
+        author:
+            - NotBlank: { message: "Merci de renseigner l'auteur de la citation." }
+        text:
+            - NotBlank: { message: "Merci de renseigner votre citation.", groups: [quote] }
+            - MinLength: { limit: 3, message: "La citation doit faire au moins {{ limit }} caractères.", groups: [quote] }
+            - MaxLength: { limit: 500, message: "La citation ne doit pas dépasser {{ limit }} caractères.", groups: [quote] }
+            - MaxLength: { limit: 100, message: "La description du lien ne doit pas dépasser {{ limit }} caractères.", groups: [link] }
+            - MaxLength: { limit: 200, message: "La description de l'image ne doit pas dépasser {{ limit }} caractères.", groups: [image] }
+        link:
+            - NotBlank: { message: "Merci de renseigner votre lien.", groups: [link] }
+        image:
+            - NotBlank: { message: "Merci de renseigner votre image.", groups: [image] }
+            - Image: { maxSize: 500k, maxSizeMessage: "La taille de l'image ne doit pas dépasser {{ limit }}." }

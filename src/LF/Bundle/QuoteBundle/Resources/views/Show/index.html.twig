@@ -1,0 +1,21 @@
+{% extends '::default.html.twig' %}
+{% block title %}Voir toutes les citations{% if stringPart != "" %} : {{stringPart}}{% endif %}{% endblock %}
+
+{% set submenu = 'quote_list' %}
+
+{% block javascript %}
+    {{ parent() }}
+    {% javascripts 
+        '@LFQuoteBundle/Resources/public/js/quote.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="row-fluid">
+        <div class="span12">
+            {% include 'LFQuoteBundle:Show:list.html.twig' with {'o_quotes': o_quotes} %}
+        </div>
+    </div>
+{% endblock %}

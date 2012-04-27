@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+{% if subMenu is not defined %}
+    {% set subMenu = 'home' %}
+{% endif %}
+{% set menu = 'website' %}
+{% block content %}
+	{% if submenu is not defined %}
+        {% set submenu = 'home' %}
+    {% endif %}
+    <div class="row">
+        <div class="span3">
+            <div class="well sidebar-nav">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Website</li>
+                    <li {% if subMenu == 'home' %}class="active"{% endif %}><a href="{{ url('homepage') }}">Accueil</a></li>
+                    <li {% if subMenu == 'quote_list' %}class="active"{% endif %}><a href="{{ url('LFQuoteBundle_Show_list') }}">Voir toutes les citations</a></li>
+                    <li {% if subMenu == 'edit_quote' %}class="active"{% endif %}><a href="{{ url('LFQuoteBundle_Edit_new', { 'mode': 'quote' }) }}">Partager une citation</a></li>
+                    <li {% if subMenu == 'edit_link' %}class="active"{% endif %}><a href="{{ url('LFQuoteBundle_Edit_new', { 'mode': 'link' }) }}">Partager un lien</a></li>
+                    <li {% if subMenu == 'edit_image' %}class="active"{% endif %}><a href="{{ url('LFQuoteBundle_Edit_new', { 'mode': 'image' }) }}">Partager une image</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="span9">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

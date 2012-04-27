@@ -1,0 +1,10 @@
+LF\Bundle\UserBundle\Entity\User:
+    properties:
+        firstName:
+            - NotBlank: { message: "Merci de renseigner le prénom de l'utilisateur." }
+            - MinLength: { limit: 3, message: "Le prénom doit faire au moins  {{ limit }} caractères." }
+        lastName:
+            - NotBlank: { message: "Merci de renseigner le nom de l'utilisateur." }
+            - MinLength: { limit: 3, message: "Le nom doit faire au moins {{ limit }} caractères." }
+        bio:
+            - MinLength: { limit: 10, message: "La biographie doit faire au moins {{ limit }} caractères." }
